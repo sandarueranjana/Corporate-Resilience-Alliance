@@ -51,7 +51,32 @@
           url("https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
         background-size: cover;
         background-position: center;
-        background-attachment: fixed;
+        background-attachment: scroll; /* Default to scroll for mobile compatibility */
+      }
+      .services-bg {
+        background-image:
+          linear-gradient(rgba(253, 253, 253, 0.897), rgba(179, 253, 248, 0.7)),
+          url("img/Thoughtful Executive.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll; /* Default to scroll for mobile compatibility */
+      }
+
+      /* Enable parallax effect only on larger screens (tablets/desktops) */
+      @media (min-width: 768px) {
+        .hero-bg,
+        .services-bg {
+          background-attachment: fixed;
+        }
+      }
+
+      /* Hide scrollbar for horizontal scrolling containers */
+      .hide-scroll-bar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .hide-scroll-bar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
       }
     </style>
   </head>
@@ -115,7 +140,7 @@
             <a
               href="#contact"
               class="bg-teal text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-opacity-90 shadow-lg shadow-teal/30 transition-all"
-              >Get a Quote</a
+              >Contact Us</a
             >
           </div>
 
@@ -314,8 +339,8 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" class="py-24 services-bg relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
           <h2 class="text-3xl md:text-4xl font-serif font-bold text-teal mb-4">
             Corporate Mental Health & Employee Assistance
@@ -332,7 +357,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="100"
-            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white group cursor-default"
+            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white/90 backdrop-blur-sm group cursor-default"
           >
             <div class="flex-shrink-0 mt-1">
               <i class="ph ph-megaphone text-4xl text-green"></i>
@@ -355,7 +380,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="200"
-            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white group cursor-default"
+            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white/90 backdrop-blur-sm group cursor-default"
           >
             <div class="flex-shrink-0 mt-1">
               <i class="ph ph-buildings text-4xl text-green"></i>
@@ -378,7 +403,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="300"
-            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white group cursor-default"
+            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white/90 backdrop-blur-sm group cursor-default"
           >
             <div class="flex-shrink-0 mt-1">
               <i class="ph ph-desktop text-4xl text-green"></i>
@@ -401,7 +426,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="400"
-            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white group cursor-default"
+            class="flex gap-6 p-8 border border-gray-100 rounded-xl hover:border-green/50 hover:shadow-lg transition-all bg-white/90 backdrop-blur-sm group cursor-default"
           >
             <div class="flex-shrink-0 mt-1">
               <i class="ph ph-chart-line-up text-4xl text-green"></i>
@@ -570,15 +595,13 @@
               <h2
                 class="text-3xl font-serif font-bold text-teal mb-4 flex items-center gap-3"
               >
-                <i class="ph ph-eye text-green"></i> Vision Statement
+                <i class="ph ph-eye text-green"></i> Vision
               </h2>
               <p
                 class="text-charcoal/80 text-lg italic leading-relaxed border-l-4 border-green pl-4"
               >
-                "To cultivate a Sri Lankan corporate landscape where resilience,
-                wellbeing, and healing are fundamental values, empowering
-                organizations and their people to thrive in a dynamically
-                changing world."
+                "Empowering organizations and their people to thrive in a
+                dynamically changing world."
               </p>
             </div>
 
@@ -586,13 +609,13 @@
               <h2
                 class="text-3xl font-serif font-bold text-teal mb-4 flex items-center gap-3"
               >
-                <i class="ph ph-target text-green"></i> Mission Statement
+                <i class="ph ph-target text-green"></i> Mission
               </h2>
               <p class="text-charcoal/80 text-lg leading-relaxed">
                 To serve as a unifying alliance providing a framework of
                 psychological support, professional training, and advocacy to
                 heal hearts, foster mental health, and build lasting corporate
-                resilience across all sectors in Sri Lanka.
+                resilience across all sectors in Sri Lanka
               </p>
             </div>
 
@@ -641,12 +664,14 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div
+          class="flex overflow-x-auto snap-x snap-mandatory pb-8 gap-6 px-4 -mx-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8 sm:overflow-visible sm:pb-0 hide-scroll-bar"
+        >
           <!-- Team Member 1: J N Thilakaratne -->
           <div
             data-aos="fade-up"
             data-aos-delay="100"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
+            class="w-[85vw] shrink-0 snap-center sm:w-auto sm:snap-none bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
           >
             <div class="overflow-hidden relative h-64 flex-shrink-0">
               <img
@@ -701,7 +726,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="200"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
+            class="w-[85vw] shrink-0 snap-center sm:w-auto sm:snap-none bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
           >
             <div class="overflow-hidden relative h-64 flex-shrink-0">
               <img
@@ -754,7 +779,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="300"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
+            class="w-[85vw] shrink-0 snap-center sm:w-auto sm:snap-none bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
           >
             <div class="overflow-hidden relative h-64 flex-shrink-0">
               <img
@@ -809,7 +834,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="400"
-            class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
+            class="w-[85vw] shrink-0 snap-center sm:w-auto sm:snap-none bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full"
           >
             <div class="overflow-hidden relative h-64 flex-shrink-0">
               <img
@@ -823,7 +848,7 @@
             </div>
             <div class="p-6 flex flex-col flex-grow relative bg-white z-10">
               <h3 class="text-lg font-bold text-teal mb-1 leading-tight">
-                Dr. Iroshi Sewwandi Siriwardhana
+                Iroshi Sewwandi Siriwardhana
               </h3>
               <p
                 class="text-green font-semibold text-xs mb-3 mt-1 flex items-center gap-1.5 leading-tight"
@@ -880,42 +905,47 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div
+          class="flex overflow-x-auto snap-x snap-mandatory pb-8 gap-6 px-4 -mx-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 md:gap-10 md:overflow-visible md:pb-0 hide-scroll-bar"
+        >
           <!-- Session Card 1 -->
           <div
             data-aos="fade-up"
             data-aos-delay="100"
-            class="bg-slate rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal/10 group flex flex-col h-full"
+            class="w-[85vw] shrink-0 snap-center md:w-auto md:snap-none bg-slate rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal/10 group flex flex-col h-full"
           >
             <div class="overflow-hidden relative h-56 flex-shrink-0">
               <img
-                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="img/sdb_workshop.png"
                 alt="Corporate Workshop Session"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div
                 class="absolute top-4 left-4 bg-white/90 backdrop-blur text-teal text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
               >
-                Employee Awareness
+                Strategic Leadership Workshop
               </div>
             </div>
             <div class="p-6 flex flex-col flex-grow relative z-10">
               <h3
                 class="text-xl font-bold text-teal mb-2 group-hover:text-green transition-colors"
               >
-                Wellbeing & Burnout Seminar
+                Grievance Handling & Stress Management
               </h3>
               <p
                 class="text-charcoal/50 text-sm font-semibold mb-4 flex items-center gap-1.5"
               >
-                <i class="ph ph-buildings"></i> Leading Technology Firm, Colombo
+                <i class="ph ph-buildings"></i> SDB bank, Colombo 06
               </p>
               <p
                 class="text-charcoal/80 text-sm leading-relaxed mt-auto border-t border-teal/10 pt-4"
               >
-                A full-day interactive workshop focused on identifying early
-                signs of burnout, establishing healthy work-life boundaries, and
-                creating peer support systems within high-pressure tech teams.
+                We are pleased to highlight a specialized training program
+                recently conducted for the Area Managers and Bank Managers of
+                SDB bank. Recognizing that leadership starts with emotional
+                intelligence and effective conflict resolution, this session
+                focused on empowering senior management with the tools to lead
+                high-performing, resilient teams.
               </p>
             </div>
           </div>
@@ -924,7 +954,7 @@
           <div
             data-aos="fade-up"
             data-aos-delay="200"
-            class="bg-slate rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal/10 group flex flex-col h-full"
+            class="w-[85vw] shrink-0 snap-center md:w-auto md:snap-none bg-slate rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal/10 group flex flex-col h-full"
           >
             <div class="overflow-hidden relative h-56 flex-shrink-0">
               <img
@@ -952,50 +982,12 @@
               <p
                 class="text-charcoal/80 text-sm leading-relaxed mt-auto border-t border-teal/10 pt-4"
               >
-                Working directly with senior management to build emotional
-                intelligence and conflict resolution skills. The session
-                empowered leaders to foster psychologically safe environments on
-                the factory floor.
-              </p>
-            </div>
-          </div>
-
-          <!-- Session Card 3 -->
-          <div
-            data-aos="fade-up"
-            data-aos-delay="300"
-            class="bg-slate rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-teal/10 group flex flex-col h-full"
-          >
-            <div class="overflow-hidden relative h-56 flex-shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Crisis Intervention Group"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div
-                class="absolute top-4 left-4 bg-white/90 backdrop-blur text-teal text-xs font-bold px-3 py-1.5 rounded-full shadow-sm"
-              >
-                Crisis Intervention
-              </div>
-            </div>
-            <div class="p-6 flex flex-col flex-grow relative z-10">
-              <h3
-                class="text-xl font-bold text-teal mb-2 group-hover:text-green transition-colors"
-              >
-                Change Management Support
-              </h3>
-              <p
-                class="text-charcoal/50 text-sm font-semibold mb-4 flex items-center gap-1.5"
-              >
-                <i class="ph ph-buildings"></i> Financial Services Institution
-              </p>
-              <p
-                class="text-charcoal/80 text-sm leading-relaxed mt-auto border-t border-teal/10 pt-4"
-              >
-                Provided critical on-site counseling and group processing
-                sessions to support staff through a major organizational
-                restructuring, significantly reducing collective anxiety and
-                resistance.
+                We are pleased to highlight a specialized training program
+                recently conducted for the Area Managers and Bank Managers of
+                SDB bank. Recognizing that leadership starts with emotional
+                intelligence and effective conflict resolution, this session
+                focused on empowering senior management with the tools to lead
+                high-performing, resilient teams.
               </p>
             </div>
           </div>
@@ -1035,7 +1027,7 @@
                 <div>
                   <h4 class="font-bold text-teal">Email Us</h4>
                   <p class="text-charcoal/70 mt-1">
-                    partnerships@corporateresilience.lk
+                    thecounsellor.sl@gmail.com
                   </p>
                 </div>
               </div>
@@ -1048,10 +1040,23 @@
                   <i class="ph ph-phone text-xl"></i>
                 </div>
                 <div>
-                  <h4 class="font-bold text-teal">Call Us</h4>
+                  <h4 class="font-bold text-teal">Call Us (Hotline)</h4>
                   <p class="text-charcoal/70 mt-1">
-                    +94 11 234 5678 (Mon-Fri, 9am-5pm)
+                    077 738 23 20 / 071 089 84 73
                   </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-4 hover:-translate-y-1 transition-transform cursor-default"
+              >
+                <div
+                  class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0 text-teal"
+                >
+                  <i class="ph ph-whatsapp-logo text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-teal">WhatsApp</h4>
+                  <p class="text-charcoal/70 mt-1">071 089 84 73</p>
                 </div>
               </div>
               <div
@@ -1065,7 +1070,23 @@
                 <div>
                   <h4 class="font-bold text-teal">Headquarters</h4>
                   <p class="text-charcoal/70 mt-1">
-                    Moratuwa, Western Province<br />Sri Lanka
+                    19/1, Gangarama Road,<br />Kalutara North, 12000<br />Sri
+                    Lanka
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex items-start gap-4 hover:-translate-y-1 transition-transform cursor-default"
+              >
+                <div
+                  class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm flex-shrink-0 text-teal"
+                >
+                  <i class="ph ph-clock text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-teal">Hours</h4>
+                  <p class="text-charcoal/70 mt-1">
+                    9.00am to 6.00pm<br />Monday to Sunday
                   </p>
                 </div>
               </div>
@@ -1218,14 +1239,18 @@
         >
           <!-- Logo & Copyright -->
           <div class="flex items-center gap-3">
-            <i class="ph ph-shield-check text-3xl text-green"></i>
+            <img
+              src="img/logo_trn.png"
+              alt="Corporate Resilience Alliance Logo"
+              class="h-12 md:h-16 w-auto object-contain"
+            />
             <div>
-              <span class="font-serif font-bold text-lg text-white"
-                >Corporate Resilience Alliance</span
-              >
-              <p class="text-slate/50 text-xs mt-1">
-                © 2026. All rights reserved.
-              </p>
+              <img
+                src="img/whitetextlogo1.png"
+                alt="Corporate Resilience Alliance Logo"
+                class="h-8 w-auto object-contain mb-2"
+              />
+              <p class="text-slate/50 text-xs">© 2026. All rights reserved.</p>
             </div>
           </div>
 
